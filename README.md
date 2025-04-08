@@ -46,7 +46,7 @@ This dashboard simulates an e-commerce business analytics platform. In a real-wo
 
 ## Technologies Used
 - HTML5, CSS3, JavaScript
-- Bootstrap 4.5.2
+- Bootstrap 5
 - Chart.js
 - PapaParse (for CSV parsing)
 - Jupyter Notebook (Python)
