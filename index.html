@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>E-Commerce Analytics Dashboard</title>
+    <title>Banana Farm Analytics Dashboard</title>
     <!-- Bootstrap 5 CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet">
     <!-- Bootstrap Icons -->
@@ -18,8 +18,8 @@
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
         <div class="container">
             <a class="navbar-brand d-flex flex-column align-items-start" href="#">
-                <span class="fs-5 fw-bold"><i class="bi bi-bar-chart-fill me-2"></i>E-Commerce Analytics Dashboard</span>
-                <small class="text-secondary" style="font-size: 0.75rem;">Comprehensive analysis of e-commerce performance metrics</small>
+                <span class="fs-5 fw-bold"><i class="bi bi-bar-chart-fill me-2"></i>Banana Farm Analytics Dashboard</span>
+                <small class="text-secondary" style="font-size: 0.75rem;">Comprehensive analysis of banana farming operations</small>
             </a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
@@ -66,16 +66,16 @@
             </div>
             <div class="col-md-3" data-aos="fade-up" data-aos-delay="100">
                 <div class="card metrics-card">
-                    <div class="icon"><i class="bi bi-bag"></i></div>
+                    <div class="icon"><i class="bi bi-basket"></i></div>
                     <div class="metrics-value" id="metric-orders">0</div>
-                    <div class="metrics-label">Total Orders</div>
+                    <div class="metrics-label">Total Production (kg)</div>
                 </div>
             </div>
             <div class="col-md-3" data-aos="fade-up" data-aos-delay="200">
                 <div class="card metrics-card">
-                    <div class="icon"><i class="bi bi-cart"></i></div>
+                    <div class="icon"><i class="bi bi-tag"></i></div>
                     <div class="metrics-value" id="metric-aov">$0</div>
-                    <div class="metrics-label">Average Order Value</div>
+                    <div class="metrics-label">Average Price per kg</div>
                 </div>
             </div>
             <div class="col-md-3" data-aos="fade-up" data-aos-delay="300">
@@ -87,14 +87,14 @@
             </div>
         </div>
 
-        <h4 class="section-title" data-aos="fade-right">Performance Trends</h4>
+        <h4 class="section-title" data-aos="fade-right">Production Trends</h4>
         
         <!-- First Row - One big chart (12 columns) -->
         <div class="row">
             <div class="col-md-12" data-aos="zoom-in">
                 <div class="card pulse-animation">
                     <div class="card-body">
-                        <h5 class="card-title"><i class="bi bi-line-chart"></i>Monthly Revenue Trend (12 Months)</h5>
+                        <h5 class="card-title"><i class="bi bi-line-chart"></i>Monthly Banana Production (12 Months)</h5>
                         <div class="chart-container chart-appear">
                             <canvas id="revenueChart"></canvas>
                         </div>
@@ -103,14 +103,14 @@
             </div>
         </div>
 
-        <h4 class="section-title" data-aos="fade-right">Business Segments</h4>
+        <h4 class="section-title" data-aos="fade-right">Banana Varieties</h4>
 
         <!-- Second Row - Two charts (8 columns + 4 columns) -->
         <div class="row">
             <div class="col-md-8" data-aos="fade-right" data-aos-delay="100">
                 <div class="card">
                     <div class="card-body">
-                        <h5 class="card-title"><i class="bi bi-bar-chart"></i>Product Category Performance</h5>
+                        <h5 class="card-title"><i class="bi bi-bar-chart"></i>Banana Variety Performance</h5>
                         <div class="chart-container chart-appear">
                             <canvas id="categoryChart"></canvas>
                         </div>
@@ -120,7 +120,7 @@
             <div class="col-md-4" data-aos="fade-left" data-aos-delay="200">
                 <div class="card">
                     <div class="card-body">
-                        <h5 class="card-title"><i class="bi bi-pie-chart"></i>Website Traffic Sources</h5>
+                        <h5 class="card-title"><i class="bi bi-pie-chart"></i>Distribution Channels</h5>
                         <div class="chart-container chart-appear">
                             <canvas id="trafficChart"></canvas>
                         </div>
@@ -136,7 +136,7 @@
             <div class="col-md-4" data-aos="fade-right" data-aos-delay="100">
                 <div class="card">
                     <div class="card-body">
-                        <h5 class="card-title"><i class="bi bi-people"></i>Customer Demographics</h5>
+                        <h5 class="card-title"><i class="bi bi-people"></i>Consumer Demographics</h5>
                         <div class="chart-container chart-appear">
                             <canvas id="demographicsChart"></canvas>
                         </div>
@@ -146,7 +146,7 @@
             <div class="col-md-8" data-aos="fade-left" data-aos-delay="200">
                 <div class="card">
                     <div class="card-body">
-                        <h5 class="card-title"><i class="bi bi-bullseye"></i>Marketing Campaign ROI</h5>
+                        <h5 class="card-title"><i class="bi bi-bullseye"></i>Promotion Campaign ROI</h5>
                         <div class="chart-container chart-appear">
                             <canvas id="campaignChart"></canvas>
                         </div>
@@ -156,7 +156,7 @@
         </div>
 
         <footer class="mt-5 mb-3 text-center text-secondary">
-            <p class="mb-1">E-Commerce Analytics Dashboard <i class="bi bi-code-slash mx-1"></i> CIS3110 Assignment</p>
+            <p class="mb-1">Banana Farm Analytics Dashboard <i class="bi bi-code-slash mx-1"></i> CIS3110 Assignment</p>
             <p class="small mb-0">Built with <i class="bi bi-heart-fill text-danger"></i> using Bootstrap 5 & Chart.js</p>
         </footer>
     </div>
@@ -233,11 +233,11 @@
 
         // Dashboard data store
         let dashboardData = {
-            monthlySales: [],
-            productCategories: [],
-            trafficSources: [], 
-            customerDemographics: [],
-            marketingCampaigns: []
+            monthlyProduction: [],
+            bananaVarieties: [],
+            distributionChannels: [], 
+            consumerDemographics: [],
+            promotionCampaigns: []
         };
 
         // Load all datasets and then initialize charts
@@ -246,11 +246,11 @@
             showLoading();
 
             const dataFiles = [
-                { key: 'monthlySales', file: 'data/monthly_sales.csv' },
-                { key: 'productCategories', file: 'data/product_categories.csv' },
-                { key: 'trafficSources', file: 'data/traffic_sources.csv' },
-                { key: 'customerDemographics', file: 'data/customer_demographics.csv' },
-                { key: 'marketingCampaigns', file: 'data/marketing_campaigns.csv' }
+                { key: 'monthlyProduction', file: 'data/monthly_production.csv' },
+                { key: 'bananaVarieties', file: 'data/banana_varieties.csv' },
+                { key: 'distributionChannels', file: 'data/distribution_channels.csv' },
+                { key: 'consumerDemographics', file: 'data/consumer_demographics.csv' },
+                { key: 'promotionCampaigns', file: 'data/promotion_campaigns.csv' }
             ];
 
             const promises = dataFiles.map(item => {
@@ -366,29 +366,29 @@
 
         // Update key metrics at the top of the dashboard
         function updateMetrics() {
-            // Calculate total revenue from last 12 months
-            const totalRevenue = dashboardData.monthlySales.reduce((sum, month) => 
+            // Calculate total revenue from all production
+            const totalRevenue = dashboardData.monthlyProduction.reduce((sum, month) => 
                 sum + parseFloat(month.Revenue || 0), 0);
             
-            // Calculate total orders
-            const totalOrders = dashboardData.monthlySales.reduce((sum, month) => 
-                sum + parseInt(month.Orders || 0), 0);
+            // Calculate total banana production
+            const totalProduction = dashboardData.monthlyProduction.reduce((sum, month) => 
+                sum + parseFloat(month.Production_kg || 0), 0);
             
-            // Calculate average order value
-            const averageOrderValue = totalRevenue / totalOrders;
+            // Calculate average price per kg
+            const avgPrice = totalRevenue / totalProduction;
             
-            // Calculate YoY growth (average from product categories)
-            const avgGrowth = dashboardData.productCategories.reduce((sum, category) => 
-                sum + parseFloat(category.YoYGrowth || 0), 0) / dashboardData.productCategories.length;
+            // Calculate YoY growth (average from banana varieties)
+            const avgGrowth = dashboardData.bananaVarieties.reduce((sum, variety) => 
+                sum + parseFloat(variety.YoYGrowth || 0), 0) / dashboardData.bananaVarieties.length;
             
             // Update the metrics display
             document.getElementById('metric-revenue').textContent = formatCurrency(totalRevenue);
-            document.getElementById('metric-orders').textContent = formatNumber(totalOrders);
-            document.getElementById('metric-aov').textContent = formatCurrency(averageOrderValue);
+            document.getElementById('metric-orders').textContent = formatNumber(totalProduction);
+            document.getElementById('metric-aov').textContent = formatCurrency(avgPrice);
             document.getElementById('metric-growth').textContent = (avgGrowth * 100).toFixed(1) + '%';
         }
 
-        // CHART 1: Line Chart for Monthly Revenue
+        // CHART 1: Line Chart for Monthly Production
         function createRevenueChart() {
             const ctx = document.getElementById('revenueChart').getContext('2d');
             
@@ -398,9 +398,9 @@
             gradientFill.addColorStop(1, 'rgba(58, 134, 255, 0)');
             
             // Prepare data
-            const labels = dashboardData.monthlySales.map(item => item.Month);
-            const revenue = dashboardData.monthlySales.map(item => parseFloat(item.Revenue));
-            const orders = dashboardData.monthlySales.map(item => parseInt(item.Orders));
+            const labels = dashboardData.monthlyProduction.map(item => item.Month);
+            const production = dashboardData.monthlyProduction.map(item => parseFloat(item.Production_kg));
+            const revenue = dashboardData.monthlyProduction.map(item => parseFloat(item.Revenue));
             
             revenueChart = new Chart(ctx, {
                 type: 'line',
@@ -408,8 +408,8 @@
                     labels: labels,
                     datasets: [
                         {
-                            label: 'Revenue',
-                            data: revenue,
+                            label: 'Production (kg)',
+                            data: production,
                             borderColor: chartColors.primary,
                             backgroundColor: gradientFill,
                             borderWidth: 3,
@@ -424,8 +424,8 @@
                             yAxisID: 'y'
                         },
                         {
-                            label: 'Orders',
-                            data: orders,
+                            label: 'Revenue ($)',
+                            data: revenue,
                             borderColor: chartColors.secondary,
                             backgroundColor: 'transparent',
                             borderWidth: 3,
@@ -468,7 +468,7 @@
                             callbacks: {
                                 label: function(context) {
                                     let label = context.dataset.label || '';
-                                    if (label === 'Revenue') {
+                                    if (label === 'Revenue ($)') {
                                         return label + ': ' + formatCurrency(context.parsed.y);
                                     } else {
                                         return label + ': ' + formatNumber(context.parsed.y);
@@ -494,7 +494,7 @@
                             position: 'left',
                             title: {
                                 display: true,
-                                text: 'Revenue',
+                                text: 'Production (kg)',
                                 color: '#adb5bd'
                             },
                             grid: {
@@ -503,7 +503,7 @@
                             ticks: {
                                 color: '#adb5bd',
                                 callback: function(value) {
-                                    return formatCurrency(value);
+                                    return formatNumber(value);
                                 }
                             }
                         },
@@ -513,7 +513,7 @@
                             position: 'right',
                             title: {
                                 display: true,
-                                text: 'Orders',
+                                text: 'Revenue ($)',
                                 color: '#adb5bd'
                             },
                             grid: {
@@ -521,7 +521,10 @@
                                 color: chartColors.gridLines
                             },
                             ticks: {
-                                color: '#adb5bd'
+                                color: '#adb5bd',
+                                callback: function(value) {
+                                    return formatCurrency(value);
+                                }
                             }
                         }
                     }
@@ -529,16 +532,16 @@
             });
         }
 
-        // CHART 2: Horizontal Bar Chart for Product Categories
+        // CHART 2: Horizontal Bar Chart for Banana Varieties
         function createCategoryChart() {
             const ctx = document.getElementById('categoryChart').getContext('2d');
             
             // Sort data by revenue (descending)
-            const sortedData = [...dashboardData.productCategories].sort((a, b) => 
+            const sortedData = [...dashboardData.bananaVarieties].sort((a, b) => 
                 parseFloat(b.Revenue) - parseFloat(a.Revenue));
             
             // Prepare data
-            const labels = sortedData.map(item => item.Category);
+            const labels = sortedData.map(item => item.Variety);
             const revenue = sortedData.map(item => parseFloat(item.Revenue));
             const growth = sortedData.map(item => parseFloat(item.YoYGrowth) * 100); // Convert to percent
             
@@ -588,7 +591,8 @@
                                     let index = context.dataIndex;
                                     return [
                                         label + ': ' + formatCurrency(value),
-                                        'Growth: ' + growth[index].toFixed(1) + '%'
+                                        'Growth: ' + growth[index].toFixed(1) + '%',
+                                        'Production: ' + formatNumber(sortedData[index].Production_Tons) + ' tons'
                                     ];
                                 }
                             }
@@ -622,13 +626,13 @@
             });
         }
 
-        // CHART 3: Pie Chart for Traffic Sources
+        // CHART 3: Pie Chart for Distribution Channels
         function createTrafficChart() {
             const ctx = document.getElementById('trafficChart').getContext('2d');
             
             // Prepare data
-            const labels = dashboardData.trafficSources.map(item => item.Source);
-            const visits = dashboardData.trafficSources.map(item => parseInt(item.Visits));
+            const labels = dashboardData.distributionChannels.map(item => item.Channel);
+            const volumes = dashboardData.distributionChannels.map(item => parseInt(item.Volume_Tons));
             
             // Generate colors
             const colors = [
@@ -647,7 +651,7 @@
                 data: {
                     labels: labels,
                     datasets: [{
-                        data: visits,
+                        data: volumes,
                         backgroundColor: colors,
                         borderColor: colors.map(color => color.replace(/, .*\)/, ', 1)')),
                         borderWidth: 2,
@@ -688,7 +692,13 @@
                                     let value = context.parsed;
                                     let sum = context.dataset.data.reduce((a, b) => a + b, 0);
                                     let percentage = Math.round(value * 1000 / sum) / 10;
-                                    return label + ': ' + formatNumber(value) + ' (' + percentage + '%)';
+                                    let index = context.dataIndex;
+                                    let channel = dashboardData.distributionChannels[index];
+                                    return [
+                                        label + ': ' + value + ' tons (' + percentage + '%)',
+                                        'Revenue: ' + formatCurrency(channel.Revenue),
+                                        'Spoilage: ' + (parseFloat(channel.SpoilageRate) * 100).toFixed(1) + '%'
+                                    ];
                                 }
                             }
                         }
@@ -697,20 +707,20 @@
             });
         }
 
-        // CHART 4: Radar Chart for Customer Demographics
+        // CHART 4: Radar Chart for Consumer Demographics
         function createDemographicsChart() {
             const ctx = document.getElementById('demographicsChart').getContext('2d');
             
             // Filter and organize data
-            const ageGroups = [...new Set(dashboardData.customerDemographics.map(item => item.AgeGroup))];
+            const ageGroups = [...new Set(dashboardData.consumerDemographics.map(item => item.AgeGroup))];
             
             // Filter male and female data
-            const maleData = dashboardData.customerDemographics.filter(item => item.Gender === 'Male');
-            const femaleData = dashboardData.customerDemographics.filter(item => item.Gender === 'Female');
+            const maleData = dashboardData.consumerDemographics.filter(item => item.Gender === 'Male');
+            const femaleData = dashboardData.consumerDemographics.filter(item => item.Gender === 'Female');
             
-            // Extract average spend
-            const maleSpending = maleData.map(item => parseFloat(item.AvgAnnualSpend));
-            const femaleSpending = femaleData.map(item => parseFloat(item.AvgAnnualSpend));
+            // Extract bananas per week consumption
+            const maleConsumption = maleData.map(item => parseFloat(item.BananasPerWeek));
+            const femaleConsumption = femaleData.map(item => parseFloat(item.BananasPerWeek));
             
             demographicsChart = new Chart(ctx, {
                 type: 'radar',
@@ -719,7 +729,7 @@
                     datasets: [
                         {
                             label: 'Male',
-                            data: maleSpending,
+                            data: maleConsumption,
                             backgroundColor: 'rgba(58, 134, 255, 0.2)',
                             borderColor: 'rgba(58, 134, 255, 1)',
                             pointBackgroundColor: 'rgba(58, 134, 255, 1)',
@@ -731,7 +741,7 @@
                         },
                         {
                             label: 'Female',
-                            data: femaleSpending,
+                            data: femaleConsumption,
                             backgroundColor: 'rgba(255, 0, 110, 0.2)',
                             borderColor: 'rgba(255, 0, 110, 1)',
                             pointBackgroundColor: 'rgba(255, 0, 110, 1)',
@@ -766,15 +776,11 @@
                                 color: 'rgba(255, 255, 255, 0.05)'
                             },
                             suggestedMin: 0,
+                            suggestedMax: 4,
                             ticks: {
                                 color: '#adb5bd',
                                 backdropColor: 'transparent',
-                                callback: function(value) {
-                                    if (value % 300 === 0) {
-                                        return '$' + value;
-                                    }
-                                    return '';
-                                }
+                                stepSize: 1
                             }
                         }
                     },
@@ -798,7 +804,15 @@
                                 label: function(context) {
                                     let label = context.dataset.label || '';
                                     let value = context.raw;
-                                    return label + ': ' + formatCurrency(value);
+                                    let index = context.dataIndex;
+                                    let demographic = dashboardData.consumerDemographics.find(
+                                        item => item.AgeGroup === ageGroups[index] && item.Gender === label
+                                    );
+                                    return [
+                                        label + ': ' + value + ' bananas/week',
+                                        'Consumers: ' + formatNumber(demographic.ConsumerCount),
+                                        'Preferred Ripeness: ' + parseFloat(demographic.PreferredRipeness).toFixed(1) + '/5'
+                                    ];
                                 }
                             }
                         }
@@ -807,28 +821,29 @@
             });
         }
 
-        // CHART 5: Bubble Chart for Marketing Campaigns
+        // CHART 5: Bubble Chart for Promotion Campaigns
         function createCampaignChart() {
             const ctx = document.getElementById('campaignChart').getContext('2d');
             
             // Prepare data
-            const campaigns = dashboardData.marketingCampaigns.map(item => item.Campaign);
+            const campaigns = dashboardData.promotionCampaigns.map(item => item.Campaign);
             
             // Group campaigns by type
-            const campaignTypes = [...new Set(dashboardData.marketingCampaigns.map(item => item.Type))];
+            const campaignTypes = [...new Set(dashboardData.promotionCampaigns.map(item => item.Type))];
             
             // Create a dataset for each campaign type
             const datasets = campaignTypes.map((type, index) => {
-                const typeData = dashboardData.marketingCampaigns
+                const typeData = dashboardData.promotionCampaigns
                     .filter(item => item.Type === type)
                     .map(item => {
                         return {
                             x: parseFloat(item.Spend),
-                            y: parseFloat(item.Revenue),
+                            y: parseFloat(item.RevenueImpact),
                             r: parseFloat(item.ROI_Percent) / 5,
                             campaign: item.Campaign,
                             roi: parseFloat(item.ROI_Percent),
-                            cac: parseFloat(item.CAC)
+                            acquisitionCost: parseFloat(item.AcquisitionCost),
+                            newConsumers: parseInt(item.NewConsumers)
                         };
                     });
                 
@@ -886,7 +901,7 @@
                             },
                             title: {
                                 display: true,
-                                text: 'Campaign Revenue',
+                                text: 'Revenue Impact',
                                 color: '#adb5bd'
                             },
                             ticks: {
@@ -922,9 +937,10 @@
                                         data.campaign,
                                         'Type: ' + context.dataset.label,
                                         'Spend: ' + formatCurrency(data.x),
-                                        'Revenue: ' + formatCurrency(data.y),
+                                        'Revenue Impact: ' + formatCurrency(data.y),
                                         'ROI: ' + data.roi.toFixed(1) + '%',
-                                        'CAC: ' + formatCurrency(data.cac)
+                                        'New Consumers: ' + formatNumber(data.newConsumers),
+                                        'Acquisition Cost: ' + formatCurrency(data.acquisitionCost)
                                     ];
                                 }
                             }

@@ -1,0 +1,9 @@
+Channel,Volume_Tons,PricePerKg,Revenue,TransportCostPerTon,TotalTransportCost,SpoilageRate
+Supermarket Chains,2253,0.8,1802400,59.26,133513,0.05
+Wholesale Markets,1860,0.67,1246200,44.75,83235,0.039
+Direct to Consumer,469,1.21,567490,32.34,15167,0.018
+Food Service,889,0.75,666750,52.13,46344,0.055
+Food Processors,685,0.67,458950,63.13,43244,0.027
+Exports,1098,0.92,1010160,121.47,133374,0.082
+Farmers Markets,340,1.41,479400,42.17,14338,0.067
+Online Delivery,203,1.49,302470,64.92,13179,0.09
